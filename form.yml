@@ -1,0 +1,35 @@
+---
+cluster: "tesla"
+form:
+  - modules
+  - node_type
+  - num_cores
+  - bc_num_hours
+  - jupyterlab_switch
+  - bc_email_on_started
+  - extra_jupyter_args
+attributes:
+  jupyterlab_switch:
+    widget: "check_box"
+    label: "Use JupyterLab instead of Jupyter Notebook?"
+    help: |
+      JupyterLab is the next generation of Jupyter, and is completely compatible with existing Jupyter Notebooks.
+  num_cores: 1
+  bc_num_hours:
+    min: 1
+    max: 8
+    step: 1
+    help: |
+      Maximum 8 hour walltime.
+  num_cores: 1
+  node_type:
+    widget: select
+    label: "Node type"
+    help: |
+      - **NVIDIA Tesla K40 GPU** - (*1 core, 5GB memory, 1 K40 GPU*) Use a Tesla K40 cluster node.
+      - **NVIDIA Tesla K80 GPU** - (*1 core, 5GB memory, 1 K80 GPU*) Use a Tesla K80 cluster node.
+    options:
+      - [ "NVIDIA Tesla K40 GPU", "k40" ]
+      - [ "NVIDIA Tesla K80 GPU", "k80" ]
+  modules: "miniconda3/latest"
+  extra_jupyter_args: ""
